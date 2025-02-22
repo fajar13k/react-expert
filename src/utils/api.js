@@ -282,6 +282,96 @@ const api = (() => {
     return leaderboards;
   };
 
+  const toggleUpVoteComment = async (threadId, commentId) => {
+    const response = await _fetchWithAuth(
+      `${BASE_URL}/threads/${threadId}/comments/${commentId}/up-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          threadId,
+          commentId,
+        }),
+      },
+    );
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const {
+      data: { comment },
+    } = responseJson;
+
+    return comment;
+  };
+
+  const toggleDownVoteComment = async (threadId, commentId) => {
+    const response = await _fetchWithAuth(
+      `${BASE_URL}/threads/${threadId}/comments/${commentId}/down-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          threadId,
+          commentId,
+        }),
+      },
+    );
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const {
+      data: { comment },
+    } = responseJson;
+
+    return comment;
+  };
+
+  const toggleNeutralVoteComment = async (threadId, commentId) => {
+    const response = await _fetchWithAuth(
+      `${BASE_URL}/threads/${threadId}/comments/${commentId}/neutral-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          threadId,
+          commentId,
+        }),
+      },
+    );
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const {
+      data: { comment },
+    } = responseJson;
+
+    return comment;
+  };
+
   return {
     putAccessToken,
     getAccessToken,
@@ -296,6 +386,9 @@ const api = (() => {
     toggleUpVoteThread,
     toggleDownVoteThread,
     toggleNeutralVoteThread,
+    toggleUpVoteComment,
+    toggleDownVoteComment,
+    toggleNeutralVoteComment,
     getAllLeaderBoards,
   };
 })();

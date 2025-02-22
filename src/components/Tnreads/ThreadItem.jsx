@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { TfiComment } from 'react-icons/tfi';
 import { useNavigate } from 'react-router-dom';
@@ -17,10 +18,10 @@ const ThreadItem = ({
   totalComments,
   user,
   authUser,
-  like,
-  dislike,
-  neutralLike,
-  neutralDislike,
+  like = null,
+  dislike = null,
+  neutralLike = null,
+  neutralDislike = null,
 }) => {
   const navigate = useNavigate();
   const isThreadLiked = upVotesBy.includes(authUser);
@@ -73,7 +74,7 @@ const ThreadItem = ({
         </header>
         <article className="py-4">
           <h1 className="font-semibold text-xl">{title}</h1>
-          <p className="mt-2">{body}</p>
+          <p className="mt-2">{parse(body)}</p>
         </article>
         {
           like && (
@@ -146,13 +147,6 @@ ThreadItem.propTypes = {
   dislike: PropTypes.func,
   neutralLike: PropTypes.func,
   neutralDislike: PropTypes.func,
-};
-
-ThreadItem.defaultProps = {
-  like: null,
-  dislike: null,
-  neutralLike: null,
-  neutralDislike: null,
 };
 
 export { threadItemShape };

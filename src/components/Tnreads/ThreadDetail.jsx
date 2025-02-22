@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 
-import CommentItem, { CommentItemShape } from '../Comments/CommentItem';
 import { postedAt } from '../../utils';
+import { CommentItemShape } from '../Comments/CommentItem';
 import CommentInput from '../Comments/CommentInput';
+import CommentList from '../Comments/CommentList';
 
 const ThreadDetail = ({
   id,
@@ -17,11 +19,11 @@ const ThreadDetail = ({
   downVotesBy,
   comments,
   authUser,
-  like,
-  dislike,
-  neutralLike,
-  neutralDislike,
-  addCommentThread,
+  like = null,
+  dislike = null,
+  neutralLike = null,
+  neutralDislike = null,
+  addCommentThread = null,
 }) => {
   const isThreadLiked = upVotesBy.includes(authUser);
   const isThreadDisliked = downVotesBy.includes(authUser);
@@ -50,6 +52,12 @@ const ThreadDetail = ({
     }
   };
 
+  const commentsList = comments.map((commentItem) => ({
+    ...commentItem,
+    authUser,
+    threadId: id,
+  }));
+
   return (
     <section id="thread-detail">
       <header className="flex items-center justify-between">
@@ -64,7 +72,7 @@ const ThreadDetail = ({
       </header>
       <article className="py-4">
         <h1 className="font-semibold text-xl">{title}</h1>
-        <p className="mt-2">{body}</p>
+        <p className="mt-2">{parse(body)}</p>
       </article>
       <footer>
         <div className="flex gap-4">
@@ -102,9 +110,7 @@ const ThreadDetail = ({
       <div className="text-xl mt-4">
         <p className="text-xl mb-4">{`Semua Komentar (${comments.length})`}</p>
         {comments.length > 0 ? (
-          comments.map((comment) => (
-            <CommentItem threadId={id} isThreadLiked={isThreadLiked} isThreadDisliked={isThreadDisliked} key={comment.id} {...comment} />
-          ))
+          <CommentList comments={commentsList} />
         ) : (
           <p> Masih sepi, belum ada komentar. </p>
         )}
@@ -137,14 +143,6 @@ ThreadDetail.propTypes = {
   addCommentThread: PropTypes.func,
   comments: PropTypes.arrayOf(PropTypes.shape(CommentItemShape))
     .isRequired,
-};
-
-ThreadDetail.defaultProps = {
-  like: null,
-  dislike: null,
-  neutralLike: null,
-  neutralDislike: null,
-  addCommentThread: null,
 };
 
 export { userShape };
