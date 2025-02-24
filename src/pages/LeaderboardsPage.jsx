@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import LeaderboardList from '../components/Leaderboards/LeaderboardList';
-import { asyncPopulateLeaderboards } from '../states/shared/action';
+import { asyncPopulateLeaderboards } from '../states/leaderboards/action';
 
 const LeaderboardsPage = () => {
   const { leaderboards = [] } = useSelector((states) => states);
