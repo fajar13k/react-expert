@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import ThreadItem, { threadItemShape } from './ThreadItem';
 
 const ThreadList = ({
   threads, like, dislike, neutralLike, neutralDislike,
 }) => {
+  const { t }  = useTranslation();
+
   return (
     <div className="mb-8">
       {threads.length > 0 ? (
@@ -20,7 +23,7 @@ const ThreadList = ({
           />
         ))
       ) : (
-        <p className="h-screen">Bentar ya lagi loading.</p>
+        <p className="h-screen">{t('loading')}</p>
       )}
     </div>
   );

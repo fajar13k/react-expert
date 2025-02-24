@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import CategoryItem, { threadItemShape } from './CategoryItem';
 
 const CategoryList = ({ threads, selectedCategory, onSelectCategory }) => {
+  const { t } = useTranslation();
+
   const getFilterState = () => {
     return selectedCategory !== 'all' ? 'cursor-pointer' : 'cursor-not-allowed';
   };
@@ -31,7 +34,7 @@ const CategoryList = ({ threads, selectedCategory, onSelectCategory }) => {
             />
           ))
         ) : (
-          <p>Bentar ya lagi loading.</p>
+          <p>{t('loading')}</p>
         )}
       </div>
     </div>

@@ -3,6 +3,9 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 
+import en from './src/locales/en.json';
+import id from './src/locales/id.json';
+
 i18n
   .use(HttpApi)
   .use(LanguageDetector)
@@ -15,20 +18,10 @@ i18n
     },
     resources: {
       en: {
-        translation: {
-          welcome: 'Welcome',
-          language: 'Language',
-          newThread: 'New Thread',
-          leaderboards: 'Leaderboards',
-        },
+        translation: en
       },
       id: {
-        translation: {
-          welcome: 'Selamat Datang',
-          language: 'Bahasa',
-          newThread: 'Thread Baru',
-          leaderboards: 'Peringkat',
-        },
+        translation: id
       },
     },
   });

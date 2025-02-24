@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import LoginInput from '../components/LoginInput';
 import { asyncSetAuthUser } from '../states/authUser/action';
 
 const LoginPage = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const onLogin = ({ email, password }) => {
@@ -26,9 +28,9 @@ const LoginPage = () => {
 
         <LoginInput login={onLogin} />
         <p>
-          Ga punya akun?
+          {t('no_account_yet')}
           {' '}
-          <Link className="text-amber-500 font-2xl" to="/register">Daftar</Link>
+          <Link className="text-amber-500 font-2xl" to="/register">{t('register')}</Link>
         </p>
       </article>
     </section>

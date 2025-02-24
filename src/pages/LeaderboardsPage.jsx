@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import LeaderboardList from '../components/Leaderboards/LeaderboardList';
 import { asyncPopulateLeaderboards } from '../states/leaderboards/action';
 
 const LeaderboardsPage = () => {
   const { leaderboards = [] } = useSelector((states) => states);
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
 
@@ -19,7 +21,7 @@ const LeaderboardsPage = () => {
 
   return (
     <>
-      <h3 className="my-8 font-semibold text-2xl">Leaderboards</h3>
+      <h3 className="my-8 font-semibold text-2xl">{t('leaderboards')}</h3>
       <LeaderboardList leaderboards={leaderboardsList} />
     </>
   );

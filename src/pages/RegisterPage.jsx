@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import RegisterInput from '../components/RegisterInput';
 import { asyncRegisterUser } from '../states/users/action';
 
 const RegisterPage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -25,9 +27,9 @@ const RegisterPage = () => {
         <RegisterInput register={onRegister} />
 
         <p>
-          Sudah punya akun?
+          {t('already_have_account')}
           {' '}
-          <Link className="text-amber-500 font-2xl" to="/">Masuk</Link>
+          <Link className="text-amber-500 font-2xl" to="/">{t('login')}</Link>
         </p>
       </article>
     </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {
   asyncToggleDownVoteComment,
@@ -11,6 +12,7 @@ import {
 import CommentItem, { CommentItemShape } from './CommentItem';
 
 const CommentList = ({ comments }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const handleUpVoteComment = (threadId, commentId) => {
@@ -44,7 +46,7 @@ const CommentList = ({ comments }) => {
           />
         ))
       ) : (
-        <p>Bentar ya lagi loading.</p>
+        <p>{t('loading')}</p>
       )}
     </div>
   );

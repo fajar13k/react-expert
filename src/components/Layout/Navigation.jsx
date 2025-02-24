@@ -23,12 +23,12 @@ const Navigation = ({ authUser, signOut }) => {
       <h2 className="text-lg font-medium hidden lg:flex">Halo, <strong>{name}!</strong></h2>
       <div id="app-heaader__navigation__menu" className="flex gap-4 items-center">
         <nav className="hidden md:flex hover:bg-amber-500 p-2 rounded-lg">
-          <Link to="/add">{t('newThread')}</Link>
+          <Link to="/add">{t('new_thread')}</Link>
         </nav>
         <nav className="hidden md:flex hover:bg-amber-500 p-2 rounded-lg">
           <Link to="/leaderboards">{t('leaderboards')}</Link>
         </nav>
-        <nav>
+        <nav className="hidden md:flex">
           <LanguageSwitcher />
         </nav>
         <img className="rounded-full w-8 align-middle cursor-pointer" src={avatar} alt={id} title={name} onClick={togglePopup} />
@@ -37,8 +37,13 @@ const Navigation = ({ authUser, signOut }) => {
             <div>
               <p className="px-4 py-2 text-sm text-gray-700">hi, {name}!</p>
               <div className="border-t-2 border-gray-200 md:hidden">
+                <nav className="p-2">
+                  <LanguageSwitcher />
+                </nav>
+              </div>
+              <div className="border-t-2 border-gray-200 md:hidden">
                 <nav className="px-4 py-2 text-sm text-gray-700">
-                  <Link to="/add">{t('newThread')}</Link>
+                  <Link to="/add">{t('new_thread')}</Link>
                 </nav>
                 <nav className="px-4 py-2 text-sm text-gray-700">
                   <Link to="/leaderboards">{t('leaderboards')}</Link>
@@ -49,7 +54,7 @@ const Navigation = ({ authUser, signOut }) => {
                 className="w-full text-left text-red-500 hover:bg-gray-100 border-t-2 border-gray-200 px-4 py-2"
                 onClick={signOut}
               >
-                Keluar
+                {t('signout')}
               </button>
             </div>
           </div>

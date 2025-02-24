@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 const CommentInput = ({ commentThread }) => {
+  const { t } = useTranslation();
+
   const [content, setContent] = useState('');
 
   function commentThreadHandler() {
@@ -19,12 +22,12 @@ const CommentInput = ({ commentThread }) => {
 
   return (
     <div>
-      <textarea className="input-component-rumpi" placeholder="Berikan Komentarmu" value={content} onChange={handleTextChange} />
+      <textarea className="input-component-rumpi" placeholder={t('give_comment')} rows={3} value={content} onChange={handleTextChange} />
       <p className="text-base mx-1 my-0 text-gray-800 mb-2">
         <strong>{content?.length}</strong>
         /320
       </p>
-      <button className="btn-primary" type="submit" onClick={commentThreadHandler}>Post!</button>
+      <button className="btn-primary" type="submit" onClick={commentThreadHandler}>{t('post')}</button>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'html-react-parser';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
 
 import { postedAt } from '../../utils';
 import { CommentItemShape } from '../Comments/CommentItem';
@@ -25,6 +26,8 @@ const ThreadDetail = ({
   neutralDislike = null,
   addCommentThread = null,
 }) => {
+  const { t } = useTranslation();
+
   const isThreadLiked = upVotesBy.includes(authUser);
   const isThreadDisliked = downVotesBy.includes(authUser);
 
@@ -108,11 +111,11 @@ const ThreadDetail = ({
       </footer>
       <CommentInput commentThread={addCommentThread} />
       <div className="text-xl mt-4">
-        <p className="text-xl mb-4">{`Semua Komentar (${comments.length})`}</p>
+        <p className="text-xl mb-4">{`${t('all_comments')} (${comments.length})`}</p>
         {comments.length > 0 ? (
           <CommentList comments={commentsList} />
         ) : (
-          <p> Masih sepi, belum ada komentar. </p>
+          <p> {t('no_comments_yet')}. </p>
         )}
       </div>
     </section>
