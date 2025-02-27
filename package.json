@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint ./src",
     "test": "vitest",
+    "ci:test": "vitest --no-watch && start-server-and-test dev http-get://0.0.0.0:5173 e2e",
     "e2e": "cypress run"
   },
   "dependencies": {
@@ -47,6 +48,7 @@
     "globals": "^15.10.0",
     "jsdom": "^26.0.0",
     "postcss": "^8.5.3",
+    "start-server-and-test": "^2.0.10",
     "tailwindcss": "^3.4.17",
     "vite": "^4.2.0",
     "vitest": "^3.0.6"
