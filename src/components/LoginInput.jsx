@@ -12,9 +12,9 @@ const LoginInput = ({ login }) => {
 
   return (
     <form id="login-input">
-      <input className="input-component-rumpi" type="text" value={email} onChange={onEmailChange} placeholder={t('email')} />
-      <input className="input-component-rumpi" type="password" value={password} onChange={onPasswordChange} placeholder={t('password')} />
-      <button className="btn-primary mt-6 lg:mt-2" type="button" onClick={() => login({ email, password })}>{t('login')}</button>
+      <input id="login-input__email" className="input-component-rumpi" type="text" value={email} onChange={onEmailChange} placeholder={t('email')} />
+      <input id="login-input__password" className="input-component-rumpi" type="password" value={password} onChange={onPasswordChange} placeholder={t('password')} />
+      <button id="login-input__btn__login" className="btn-primary mt-6 lg:mt-2" type="button" onClick={() => login({ email, password })}>{t('login')}</button>
     </form>
   );
 };
