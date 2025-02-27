@@ -11,9 +11,9 @@ export default [
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
-  pluginCypress.configs.recommended,
   {
     plugins: {
+      'cypress': pluginCypress.configs.recommended,
       'react-hooks': fixupPluginRules(pluginHooks)
     },
     rules: pluginHooks.configs.recommended.rules,
