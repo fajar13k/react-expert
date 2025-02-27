@@ -3,7 +3,6 @@ import api from '../../utils/api';
 
 const ActionType = {
   RECEIVE_THREAD_DETAIL: 'RECEIVE_THREAD_DETAIL',
-  CLEAR_THREAD_DETAIL: 'CLEAR_THREAD_DETAIL',
   ADD_COMMENT: 'ADD_COMMENT',
   TOGGLE_UP_VOTE_THREAD_DETAIL: 'TOGGLE_UP_VOTE_THREAD_DETAIL',
   TOGGLE_DOWN_VOTE_THREAD_DETAIL: 'TOGGLE_DOWN_VOTE_THREAD_DETAIL',
@@ -20,10 +19,6 @@ const receiveThreadDetailActionCreator = (threadDetail) => ({
   payload: {
     threadDetail,
   },
-});
-
-const clearThreadDetailActionCreator = () => ({
-  type: ActionType.CLEAR_THREAD_DETAIL,
 });
 
 const addCommentActionCreator = (comment) => ({
@@ -218,7 +213,6 @@ const asyncToggleNeutralDownVoteComment = (threadId, commentId) => async (dispat
 export {
   ActionType,
   receiveThreadDetailActionCreator,
-  clearThreadDetailActionCreator,
   toggleUpVoteThreadDetailActionCreator,
   toggleDownVoteThreadDetailActionCreator,
   toggleNeutralUpVoteThreadDetailActionCreator,
