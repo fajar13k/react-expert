@@ -29,7 +29,7 @@ const RegisterPage = () => {
         <p>
           {t('already_have_account')}
           {' '}
-          <Link className="text-amber-500 font-2xl" to="/">{t('login')}</Link>
+          <Link className="text-amber-900 font-2xl" to="/">{t('login')}</Link>
         </p>
       </article>
     </section>

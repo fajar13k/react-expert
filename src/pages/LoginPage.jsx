@@ -30,7 +30,7 @@ const LoginPage = () => {
         <p>
           {t('no_account_yet')}
           {' '}
-          <Link className="text-amber-500 font-2xl" to="/register">{t('register')}</Link>
+          <Link className="text-amber-900 font-2xl" to="/register">{t('register')}</Link>
         </p>
       </article>
     </section>
