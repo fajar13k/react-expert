@@ -49,7 +49,7 @@ const App = () => {
   return (
     <>
       <Loading />
-      <div id="app-container" className="flex flex-col min-h-screen">
+      <div id="app-container" className="flex flex-col min-h-screen bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
         <header id="app-header" className="border-b-2 border-gray-200">
           <Navigation authUser={authUser} signOut={onSignOut} />
         </header>

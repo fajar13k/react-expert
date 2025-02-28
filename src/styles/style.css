@@ -9,7 +9,7 @@
   }
   
   .input-component-rumpi {
-    @apply block w-full p-4 rounded-2xl border-2 mt-2;
+    @apply block w-full p-4 rounded-2xl border-2 mt-2 dark:text-white dark:bg-gray-700;
   }
 
   .btn-primary {
@@ -17,12 +17,16 @@
   }
 
   .comment-item {
-    @apply p-4 flex gap-4 cursor-pointer border-t-2 border-l-2 border-r-2 border-b-0 border-gray-200;
+    @apply p-4 flex gap-4 cursor-pointer border-t-2 border-l-2 border-r-2 border-b-0 border-gray-200 dark:border-gray-500;
   }
   
   .comment-item:last-of-type {
     @apply border-b-2;
   }
+}
+
+:root {
+  --transition-duration: 0.5s;
 }
 
 * {
@@ -33,4 +37,12 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+}
+
+html {
+  transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.dark {
+  transition: background-color var(--transition-duration), color var(--transition-duration);
 }

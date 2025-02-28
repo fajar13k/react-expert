@@ -30,7 +30,7 @@ const ThreadInput = ({ threadInput }) => {
         <label className="input-label-rumpi" htmlFor="body">{t('content')}</label>
         <textarea className="input-component-rumpi" id="body" placeholder={t('content_helper')} rows={3} value={body} onChange={onBodyChange} />
       </div>
-      <p className="text-base mx-1 my-0 text-gray-800 mb-2">
+      <p className="text-base mx-1 my-0 text-gray-800 dark:text-white mb-2">
         <strong>{body.length}</strong>
         /320
       </p>
