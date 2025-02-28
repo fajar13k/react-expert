@@ -8,7 +8,7 @@ export const threadItemShape = {
 
 const CategoryItem = ({ category, selectedCategory, onSelectCategory }) => {
   const getFilterActive = () => {
-    return selectedCategory !== category ? 'bg-gray-200' : 'bg-amber-500 font-semibold';
+    return selectedCategory !== category ? 'bg-gray-200 dark:bg-gray-500' : 'bg-amber-500 font-semibold';
   };
 
   return (

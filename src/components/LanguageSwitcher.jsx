@@ -15,7 +15,7 @@ const LanguageSwitcher = () => {
       <select
         id="language-select"
         onChange={changeLanguage}
-        className="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        className="block w-full px-3 py-2 border border-gray-300 bg-white dark:bg-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
       >
         <option value="en">{getUnicodeFlagIcon('GB')} English</option>
         <option value="id">{getUnicodeFlagIcon('ID')} Bahasa Indonesia</option>

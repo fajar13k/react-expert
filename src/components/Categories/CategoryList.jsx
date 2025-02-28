@@ -12,14 +12,14 @@ const CategoryList = ({ threads, selectedCategory, onSelectCategory }) => {
   };
 
   return (
-    <div id="category-list" className="p-4 rounded-xl border-4 my-4">
+    <div id="category-list" className="p-4 rounded-xl border-4 my-4 dark:border-gray-500">
       <h1 className="text-xl font-bold mb-4">Filter</h1>
       <div className="flex gap-2 flex-wrap">
         {selectedCategory !== 'all' && (
           <button
             type="button"
             onClick={() => onSelectCategory('all')}
-            className={`px-4 py-2 bg-gray-200 rounded-xl ${getFilterState()}`}
+            className={`px-4 py-2 bg-gray-200 dark:bg-gray-500 rounded-xl ${getFilterState()}`}
           >
             Reset
           </button>

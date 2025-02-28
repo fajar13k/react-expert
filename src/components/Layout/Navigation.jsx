@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import LanguageSwitcher from '../LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
+
+import ThemeSwitcher from '../ThemeSwitcher';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 const Navigation = ({ authUser, signOut }) => {
   const { t } = useTranslation();
@@ -31,11 +33,14 @@ const Navigation = ({ authUser, signOut }) => {
         <nav className="hidden md:flex">
           <LanguageSwitcher />
         </nav>
+        <nav className="hidden md:flex hover:bg-amber-500 p-2 rounded-lg">
+          <ThemeSwitcher />
+        </nav>
         <img className="rounded-full w-8 align-middle cursor-pointer" src={avatar} alt={id} title={name} onClick={togglePopup} />
         {isPopupVisible && (
-          <div className="absolute top-20 right-4 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+          <div className="absolute top-20 right-4 w-48 bg-white dark:bg-gray-700 border border-gray-300 rounded-lg shadow-lg z-10">
             <div>
-              <p className="px-4 py-2 text-sm text-gray-700">hi, {name}!</p>
+              <p className="px-4 py-2 text-sm text-gray-700 dark:text-white">hi, {name}!</p>
               <div className="border-t-2 border-gray-200 md:hidden">
                 <nav className="p-2">
                   <LanguageSwitcher />

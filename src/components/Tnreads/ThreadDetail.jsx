@@ -71,7 +71,7 @@ const ThreadDetail = ({
             <p className="text-base text-gray-500">{postedAt(createdAt)}</p>
           </div>
         </div>
-        <h1 className="px-4 py-2 rounded-xl bg-gray-200">{category}</h1>
+        <h1 className="px-4 py-2 rounded-xl bg-gray-200 dark:bg-gray-500">{category}</h1>
       </header>
       <article className="py-4">
         <h1 className="font-semibold text-xl">{title}</h1>
